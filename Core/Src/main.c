@@ -63,7 +63,7 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
-#define VERSION_NUM 2.0f
+#define VERSION_NUM 2.01f
 
 
 /* USER CODE END PM */
@@ -169,8 +169,8 @@ int main(void)
   if(isnan(I_MAX_CONT) || I_MAX_CONT==-1){I_MAX_CONT = 14.0f;}
   if(isnan(I_CAL)||I_CAL==-1){I_CAL = 5.0f;}
   if(isnan(PPAIRS) || PPAIRS==-1){PPAIRS = 21.0f;}
-  if(isnan(GR) || GR==-1){GR = 1.0f;}
-  if(isnan(KT) || KT==-1){KT = 1.0f;}
+  if(isnan(GR) || GR==-1){GR = 6.0f;}
+  if(isnan(KT) || KT==-1){KT = 0.08f;}
   if(isnan(KP_MAX) || KP_MAX==-1){KP_MAX = 500.0f;}
   if(isnan(KD_MAX) || KD_MAX==-1){KD_MAX = 5.0f;}
   if(isnan(P_MAX)){P_MAX = 12.5f;}

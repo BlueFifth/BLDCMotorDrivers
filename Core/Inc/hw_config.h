@@ -55,8 +55,8 @@
 #define K_D .1f                    // Loop gain,  Volts/Amp
 #define K_Q .1f                    // Loop gain,  Volts/Amp
 #define K_SCALE 0.00012f             // K_loop/Loop BW (Hz) 0.0042
-#define KI_D 0.045f                // PI zero, in radians per sample
-#define KI_Q 0.045f                // PI zero, in radians per sample
+#define KI_D 0.0255f               // PI zero, in radians per sample, previously 0.045f 
+#define KI_Q 0.0255f             // PI zero, in radians per sample, previously 0.045f   
 #define OVERMODULATION 1.0f        // 1.0 = no overmodulation
 #define CURRENT_FILT_ALPHA	.1f	// 1st order d/q current filter (not used in control)
 #define VBUS_FILT_ALPHA		.1f		// 1st order bus voltage filter
