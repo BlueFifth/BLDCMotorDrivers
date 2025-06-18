@@ -4,21 +4,24 @@
 #include "mbed.h"
 #include "FastPWM.h"
 
-typedef struct
-{
-    DigitalOut *drv_enable;
+
+typedef struct{
+    DigitalOut *enable;
     DigitalOut *led;
     FastPWM *pwm_u, *pwm_v, *pwm_w;
-} GPIOStruct;
-
-typedef struct
-{
+    } GPIOStruct;
+    
+typedef struct{
+    
+    }COMStruct;
+    
+typedef struct{
     int adc1_raw, adc2_raw, adc3_raw;                       // Raw ADC Values
     float i_a, i_b, i_c;                                    // Phase currents
     float v_bus;                                            // DC link voltage
     float theta_mech, theta_elec;                           // Rotor mechanical and electrical angle
-    float dtheta_mech, dtheta_elec;                         // Rotor mechanical and electrical angular velocit
-    float i_d, i_q, i_q_filt, i_d_filt;                     // D/Q currents
+    float dtheta_mech, dtheta_elec, dtheta_elec_filt;       // Rotor mechanical and electrical angular velocit
+    float i_d, i_q, i_q_filt, i_d_filt;                               // D/Q currents
     float v_d, v_q;                                         // D/Q voltages
     float dtc_u, dtc_v, dtc_w;                              // Terminal duty cycles
     float v_u, v_v, v_w;                                    // Terminal voltages
@@ -31,8 +34,22 @@ typedef struct
     int mode;
     int ovp_flag;                                           // Over-voltage flag
     float p_des, v_des, kp, kd, t_ff;                       // Desired position, velocity, gians, torque
-    float v_ref;                                            // output voltage magnitude, field-weakening integral
-} ControllerStruct;
+    float v_ref, fw_int;                                     // output voltage magnitude, field-weakening integral
+    float cogging[128];
+    int current_sector;
+    int otw_flag;                                           // Over-temp warning
+    float i_max;
+    float inverter_tab[128];
+    int oc_flag;
+    } ControllerStruct;
 
+typedef struct{
+    double temperature;                                              // Estimated temperature
+    float temp_measured;
+    float q_in, q_out;
+    float resistance;
+    float k;
+    float trust;
+    float delta_t;
+    }   ObserverStruct;
 #endif
-

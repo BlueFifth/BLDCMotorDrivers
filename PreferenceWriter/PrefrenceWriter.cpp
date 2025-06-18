@@ -3,31 +3,26 @@
 #include "user_config.h"
 #include "mbed.h"
 
-PreferenceWriter::PreferenceWriter(uint32_t sector)
-{
+PreferenceWriter::PreferenceWriter(uint32_t sector) {
     writer = new FlashWriter(sector);
     __sector = sector;
     __ready = false;
 }
 
-void PreferenceWriter::open()
-{
+void PreferenceWriter::open() {
     writer->open();
     __ready = true;
 }
 
-bool  PreferenceWriter::ready()
-{
+bool  PreferenceWriter::ready() {
     return __ready;
 }
 
-void PreferenceWriter::write(int x, int index)
-{
+void PreferenceWriter::write(int x, int index) {
     __int_reg[index] = x;
 }
 
-void PreferenceWriter::write(float x, int index)
-{
+void PreferenceWriter::write(float x, int index) {
     __float_reg[index] = x;
 }
 
@@ -42,8 +37,7 @@ void PreferenceWriter::flush() {
     __ready = false;
 }
 
-void PreferenceWriter::load()
-{
+void PreferenceWriter::load() {
     int offs;
     for (offs = 0; offs < 256; offs++) {
         __int_reg[offs] = flashReadInt(__sector, offs);
@@ -53,8 +47,7 @@ void PreferenceWriter::load()
     }
 }
 
-void PreferenceWriter::close()
-{
+void PreferenceWriter::close() {
     __ready = false;
     writer->close();
 }

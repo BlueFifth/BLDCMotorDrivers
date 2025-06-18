@@ -423,5 +423,3 @@ FLASH_Status FLASH_WaitForLastOperation2(void);
   */ 
  
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-

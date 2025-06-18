@@ -37,4 +37,3 @@ uint32_t flashReadUint(uint32_t sector, uint32_t index);
 float flashReadFloat(uint32_t sector, uint32_t index);
     
 #endif
-
