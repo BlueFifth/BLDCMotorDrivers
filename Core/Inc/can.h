@@ -62,7 +62,7 @@ typedef struct{
 
 typedef struct{
 	uint8_t id;
-	uint8_t data[7];
+	uint8_t data[8];
 	CAN_TxHeaderTypeDef tx_header;
 }CANTxMessage ;
 

@@ -146,11 +146,14 @@ void can_tx_init(CANTxMessage *msg){
 /// 12 bit current, between -40 and 40;
 /// CAN Packet is 5 8-bit words
 /// Formatted as follows.  For each quantity, bit 0 is LSB
-/// 0: [position[15-8]]
-/// 1: [position[7-0]]
-/// 2: [velocity[11-4]]
-/// 3: [velocity[3-0], current[11-8]]
-/// 4: [current[7-0]]
+/// 0: id
+/// 1: [position[15-8]]
+/// 2: [position[7-0]]
+/// 3: [velocity[11-4]]
+/// 4: [velocity[3-0], current[11-8]]
+/// 5: [current[7-0]]
+/// 6: [temperature (Dummy signal)]
+/// 7: [bus voltage]
 void pack_reply(CANTxMessage *msg, uint8_t id, float p, float v, float t, float vb){
     int p_int = float_to_uint(p, P_MIN, P_MAX, 16);
     int v_int = float_to_uint(v, V_MIN, V_MAX, 12);
@@ -162,7 +165,8 @@ void pack_reply(CANTxMessage *msg, uint8_t id, float p, float v, float t, float 
     msg->data[3] = v_int>>4;
     msg->data[4] = ((v_int&0xF)<<4) + (t_int>>8);
     msg->data[5] = t_int&0xFF;
-    msg->data[6] = vb_int;
+    msg->data[6] = 1;
+    msg->data[7] = vb_int;
     }
 
 /// CAN Command Packet Structure ///
