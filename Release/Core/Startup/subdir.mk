@@ -16,7 +16,7 @@ OBJS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Startup/%.o: ../Core/Startup/%.s Core/Startup/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@"  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -c -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Core/Inc" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Core/Src" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Core/Startup" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Core/Startup" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Drivers/CMSIS/Device" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Drivers/CMSIS/Device/ST" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Drivers/CMSIS/Device/ST/STM32F4xx" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/claro/OneDrive - University of Cape Town/Baleka Internship/repos/BLDCMotorDrivers/Drivers/STM32F4xx_HAL_Driver/Src" -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@"  -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-Core-2f-Startup
 

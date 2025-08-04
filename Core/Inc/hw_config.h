@@ -47,7 +47,7 @@
 #define DTC_COMP 			0.000f          // deadtime compensation (100 ns / 25 us)
 #define DT					.000025f		// Loop period
 #define EN_ENC_LINEARIZATION 1				// Enable/disable encoder linearization
-#define V_BUS_MAX			40.0f			// max drive voltage (faults above this)
+#define V_BUS_MAX			52.0f			// max drive voltage (faults above this)
 
 /* Current controller */
 #define L_D .00004f				// D axis inductance
