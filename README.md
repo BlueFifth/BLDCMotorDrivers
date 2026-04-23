@@ -35,7 +35,7 @@ All Steadywin motors and accessories are stored in a dedicated box which can eit
 | 10     | Shared       | V2.00 – Calibrated    |                 | 
 | 11     | Shared       | V2.00 – Calibrated    |                 | 
 | 12     | Baleka Spine | V2.00 – Calibrated    |                 |
-| 13     | N/A          | V2.00                 | Driver Faults   | 
+| 13     | N/A          | V2.00                 | Driver Faults - Can communicate over serial but refuses to move | 
 | 14     | Kemba        | V2.00 – Calibrated    |                 |
 
 ## Powering
